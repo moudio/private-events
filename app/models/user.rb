@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :events
+    has_many :events, foreign_key: "creator_id", class_name: "Event"
     
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     
