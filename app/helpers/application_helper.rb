@@ -14,4 +14,20 @@ module ApplicationHelper
         session.delete(:user_id)
         @current_user = nil
     end
+
+    def upcoming_events
+        upcoming = []
+        @user.attended_events.each do |event|
+            upcoming << event if event.date >= Time.zone.now
+        end
+        upcoming
+    end
+
+    def past_events
+        past = []
+        @user.attended_events.each do |event|
+            past << event if event.date < Time.zone.now
+        end
+        past
+    end
 end

@@ -1,7 +1,16 @@
 <h1 align="center">Showing all the events </h1>
-<% @events.each do |event| %>
 <div align="center">
-<h2>  <%=  link_to "#{event.name}", event_path(event) %> </h2>
+    <h2>Upcoming Events</h2>
+    <% @upcoming_events.each do |event| %>
+    <h3>  <%=  link_to "#{event.name}", event_path(event) %> </h3>
+    <% end %>
+    
+    <hr>
+
+    <h2>Past Events</h2>
+    <% @past_events.each do |event| %>
+    <h3>  <%=  link_to "#{event.name}", event_path(event) %> </h3>
+    <% end %>
+
 </div>
-<% end %>
 
