@@ -1,2 +1,7 @@
 <h1 align="center"> Showing the events by</h1>
 <h2 align="center"> <%= @event.creator.username %> </h2>
+
+<h3 align="center"> Attendees:</h3>
+<% @event.attendees.each do |attendee| %>
+<p><%= attendee.username %></p> 
+<%end %>

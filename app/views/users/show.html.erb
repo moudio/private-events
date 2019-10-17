@@ -1,5 +1,8 @@
 <h1 align="center"> Welcome <%= @user.username %> ! </h1>
 
+
+<h2 align="center"> Created events </h2>
+
 <% @user.events.each do |event| %>
     <div align="center">
         <h3><%= event.name %></h3>
@@ -8,5 +11,18 @@
             <%= event.date %>
         </p>
     </div>
-    
+
+<% end %>
+
+<h2 align="center"> Attended events </h2>
+
+<% @user.attended_events.each do |event| %>
+    <div align="center">
+        <h3><%= event.name %></h3>
+        <p>
+            <%= event.location %>
+            <%= event.date %>
+        </p>
+    </div>
+
 <% end %>
