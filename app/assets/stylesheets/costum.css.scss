@@ -1,16 +1,30 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.jumbotron {
-    background: asset-url('bg');
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.bg-img {
+    background-image: linear-gradient(to bottom right, rgba(0,0,0,.2), rgba(225,225,225,.8)), asset-url('bg');
     background-size: cover;
     height: 500px;
 }
 
-.event {
-    margin: 1rem auto;
-    border-bottom: 1px solid rgba(0,0,0,.2);
-    border-top: 1px solid rgba(0,0,0,.2);
+
+// Simple form styling
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  // width: 80%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
 }
 
 #error_explanation {
@@ -23,19 +37,35 @@
 
 .field_with_errors {
   @extend .has-error;
-  .form-control {
-    color: $state-danger-text;
-  }
 }
 
-#error_explanation {
-  color: red;
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
-  }
+.datetime {
+  width: 100px;
+  display: inline;
 }
 
-// .alert {
-//     background-color: red;
-// }
+// Events index styling
+
+.events {
+  margin: 5rem;
+}
+
+.event {
+  margin-top: 2rem;
+  padding: 2rem;
+  position: relative;
+}
+
+.event:not(:last-child):after {
+    background-color: black; 
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 1px;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,0);
+    width: 300px;
+}
+
+
