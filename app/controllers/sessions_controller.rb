@@ -4,9 +4,8 @@ class SessionsController < ApplicationController
     
     def create 
         user = User.find_by(username: params[:session][:username])
-        # debugger
         if user 
-            flash[:notice] = "You have successfully logged in"
+            flash[:success] = "You have successfully logged in"
             log_in user
             redirect_to user_path(user)
         else 
@@ -16,9 +15,9 @@ class SessionsController < ApplicationController
         end 
     end 
 
-    def destroy 
+    def destroy
+        flash[:success] = "You have logged out"
         log_out
-        redirect_to login_path
-
+        redirect_to root_url
     end
 end

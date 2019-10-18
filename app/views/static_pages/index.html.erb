@@ -1,0 +1,11 @@
+<div class="jumbotron">
+    <div align="center">
+        <h1 align="center">Private Events</h1>
+        <h2>Welcome to our app you can use the botton below to create an account</h2>
+        <% if current_user %>
+            <%= link_to "Events", events_path, class: 'btn btn-primary btn-lg' %>
+        <% else %>
+            <%= link_to "Sign Up", new_user_path, class: 'btn btn-primary btn-lg' %>
+        <% end %>
+    </div>
+</div>

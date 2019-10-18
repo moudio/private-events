@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
+    before_action :require_user, except: [ :show, :index ]
 
     def index
         @upcoming_events = Event.upcoming
-        
         @past_events = Event.past
     end
 
@@ -30,5 +30,10 @@ class EventsController < ApplicationController
 
      def events_params
         params.require(:event).permit(:name, :location, :date)
-     end 
+     end
+
+     def require_user
+        flash[:danger] = "You have to login!"
+        redirect_to root_url if !current_user
+     end
 end
