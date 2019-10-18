@@ -10,14 +10,14 @@ feature 'User authorizations' do
 
     scenario "Signed-in user can't sign up again" do
         
-        sign_in user.username
+        sign_in user.email
         visit new_user_path
         expect(page).to have_content("You have to logout to create an account!")
     end
 
-    def sign_in(name)
+    def sign_in(email)
         visit login_path
-        fill_in 'name', with: name
+        fill_in 'Email', with: email
         click_button 'Login'
     end
 

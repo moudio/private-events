@@ -13,3 +13,10 @@ require 'rails_helper'
 # RSpec.describe EventsHelper, type: :helper do
 #   pending "add some examples to (or delete) #{__FILE__}"
 # end
+
+def login(email)
+    visit login_path
+    fill_in 'Email', with: email
+    click_button 'Login'
+
+end 
