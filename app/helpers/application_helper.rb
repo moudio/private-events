@@ -18,9 +18,10 @@ module ApplicationHelper
     def upcoming_events
         upcoming = []
         @user.attended_events.each do |event|
-            upcoming << event if event.date >= Time.zone.now
-        end
+        upcoming << event if event.date >= Time.zone.now
+    end 
         upcoming
+
     end
 
     def past_events

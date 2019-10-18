@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
         @upcoming_events = upcoming_events
         @prev_events = past_events
+
     end 
 
     private 
