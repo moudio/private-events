@@ -8,4 +8,20 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: {case_sensitive: false}, format: { with: VALID_EMAIL_REGEX }
 
     has_secure_password
+
+
+    def attend!(event)
+        user_events.create!(attended_event_id: event.id)
+    end
+
+    def cancel!(event)
+        @event = user_events.find_by(attended_event_id: event.id)
+        if @event
+            @event.destroy
+        end
+    end 
+
+    def attending?(event)
+        event.attendees.include?(self)
+    end
 end

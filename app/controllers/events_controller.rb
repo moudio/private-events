@@ -33,9 +33,9 @@ class EventsController < ApplicationController
      end
 
      def require_user
-   if !current_user
-        flash[:danger] = "You have to login!"
-        redirect_to root_url
-     end 
+        if !current_user
+            flash[:danger] = "You have to login!"
+            redirect_to root_url
+        end 
      end
 end

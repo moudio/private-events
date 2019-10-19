@@ -1,11 +1,26 @@
-<h1 align="center"> Showing the events</h1>
+<div class="jumbotron">
+    <h1 align="center"> Event Details</h1>
 
-<div class="event">
-    <h3 align="center"><%= @event.name %></h3>
-    <h4 align="center">Creator: <%= @event.creator.username %> </h4>
+    <div class="event">
+        <div class="events row" align="center" >
+            <div class="col-md-6">
+                <h3 align="center"><%= @event.name %></h3>
+                <h4 align="center">Creator: <%= link_to "#{@event.creator.username}", user_path(@event.creator.id) %> </h4>
+                <h5>Date: <%= @event.date %></h5>
+                <h5>Location: <%= @event.location %></h5>
+                <%= render 'layouts/event_bottons' %>
+            </div>
+            <div class="col-md-6">
+                <h3 align="center"> Attendees:</h3>
+                <% if @event.attendees.any? %>
+                    <% @event.attendees.each do |attendee| %>
+                        <p align="center"><%= attendee.username %></p>
+                    <%end %>
+                <% else %>
+                    <p>No attendees yet</p>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
 </div>
-
-<h3 align="center"> Attendees:</h3>
-    <% @event.attendees.each do |attendee| %>
-     <h4 align="center"><%= attendee.username %></h4> 
-<%end %>
