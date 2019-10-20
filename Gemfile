@@ -27,6 +27,7 @@ gem 'simple_form'
 gem 'bootstrap-sass' 
 gem 'jquery-rails'
 gem "rake"
+gem 'rails-controller-testing'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -56,6 +57,7 @@ group :development do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'spring-commands-rspec'
+ 
 
 end
 

@@ -5,3 +5,4 @@ In this project, we'll model the Eventbride website. Users can create multiple e
 
 Mouhamadou Diouf ( <a href="https://github.com/MouhaDiouf"> @mouhad </a>)
 Redvan Khiri (<a href="https://github.com/Redvanisation"> @Redvanisation </a>)
+

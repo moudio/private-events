@@ -2,7 +2,13 @@ FactoryBot.define do
   factory :event do
     name { "New Event" }
     location { "Dakar" }
-    date { "2019-10-16 10:40:21" }
-    creator_id { 1 }
+  end
+
+  factory :future_event do
+    date { "2019-12-02 08:00:00" }  
+  end
+
+  factory :past_event do
+    date { "2019-09-01 11:00:00" }  
   end
 end

@@ -6,18 +6,23 @@ feature 'Event creation' do
 
     let(:event) { Event.create(name: "event1", location: "somewhere", date: "1980/10/10-15:10") }
 
-    scenario "User can login and test " do
-  
+    scenario "Logged in used can create and event " do
         event.creator_id = user.id
         visit login_path
         login user.email
         visit new_event_path 
         fill_in 'Name', with: event.name
         fill_in 'Location', with: event.location
-      expect {
-          click_on 'Create Event'
-      }.to change(Event, :count).by(1)
+        expect {
+            click_on 'Create Event'
+        }.to change(Event, :count).by(1)
+        expect(event.creator).to eq user
+    end
 
+    scenario "Non-logged in user can't create an event" do
+        event.creator_id = user.id
+        visit new_event_path
+        expect(page).to have_content('Welcome')
     end
 
 end 
