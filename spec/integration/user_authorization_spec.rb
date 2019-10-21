@@ -11,7 +11,7 @@ feature 'User authorizations' do
   let(:user) { create(:user) }
 
   scenario "Signed-in user can't sign up again" do
-    log_in user.email
+    login user.email
     visit new_user_path
     expect(page).to have_content('You have to logout to create an account!')
   end

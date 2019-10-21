@@ -47,7 +47,7 @@ RSpec.describe Event, type: :model do
       user.save
       event.creator_id = user.id
       event.save
-      expect(event.creator).to be(user)
+      expect(event.creator).to eq(user)
     end
 
     it 'Checks if the event has attendees' do
