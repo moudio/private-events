@@ -8,6 +8,7 @@
                 <h4 align="center">Creator: <%= link_to "#{@event.creator.username}", user_path(@event.creator.id) %> </h4>
                 <h5>Date: <%= @event.date %></h5>
                 <h5>Location: <%= @event.location %></h5>
+
                 <%= render 'layouts/event_bottons' %>
             </div>
             <div class="col-md-6">
@@ -19,6 +20,7 @@
                 <% else %>
                     <p>No attendees yet</p>
                 <% end %>
+                <>
             </div>
         </div>
     </div>

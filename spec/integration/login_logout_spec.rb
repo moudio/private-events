@@ -16,10 +16,4 @@ feature 'Testing the login and logout functionalities' do
     click_link 'Logout'
     expect(page).to have_content('Welcome to our app you can use the button below to create an account')
   end
-
-  def login(email)
-    visit login_path
-    fill_in 'Email', with: email
-    click_button 'Login'
-  end
 end

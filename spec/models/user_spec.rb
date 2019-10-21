@@ -30,4 +30,21 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  context 'checking for users associations' do
+    let(:user) { create(:user) }
+    let(:event) { user.events.build(name: 'Example event 1', location: 'Mbour', date: '2019-12-02 08:00:00') }
+    describe 'user associations' do
+      it 'checks if the user has many events' do
+        event.save
+        expect(user.events.length).to eq(1)
+      end
+
+      it 'checks if user has attended events' do
+        user.attended_events << event
+        user.save
+        expect(user.attended_events.length).to eq(1)
+      end
+    end
+  end
 end
