@@ -1,0 +1,7 @@
+
+<% if current_user %>
+	<%= simple_form_for(current_user.user_events.find_by(attended_event_id: @event.id), html: { method: :delete }) do |f| %>
+	<%= f.hidden_field :attended_event_id %>
+		<%= f.submit "Cancel", class: "btn btn-lg btn-danger" %>
+	<% end %>
+<% end %>

@@ -1,0 +1,9 @@
+<% if @event.date > Time.zone.now %>
+    <% if current_user && current_user.attending?(@event) %> 
+        <%= render 'layouts/cancel_botton' %>
+    <% else %>
+        <%= render 'layouts/attend_botton' %>
+    <% end %>
+<% else %>
+ <p> You can't attend past events </p>
+<% end %>
